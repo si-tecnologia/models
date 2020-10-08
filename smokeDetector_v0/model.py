@@ -1,4 +1,3 @@
-import base64
 import tensorflow as tf
 import numpy as np
 
@@ -6,18 +5,23 @@ from io import BytesIO
 from PIL import Image
 from object_detection.utils import visualization_utils as viz_utils
 
-MODEL_PATH = 'smokeDetector_v0/fine_tuned_model/saved_model'
-
 class SmokeDetector:
     '''Wrapper class of the Smoke Detection Model'''
-
-    detect_fn = tf.saved_model.load(MODEL_PATH)
     
     category_index = {
         1: {'id': 1, 'name': 'Fumaça'}
     }
 
-    def __init__(self, min_score_thresh=0.3):
+    versions_path = {
+        0:'smokeDetector_v0/fine_tuned_model/saved_model',
+        1:'smokeDetector_v0/fine_tuned_model/saved_model_v1',
+    }
+
+    def __init__(self, min_score_thresh=0.3, v=0):
+        if v not in self.versions_path.keys():
+            raise ValueError(f'Only versions {self.versions_path.keys()} are available')
+        
+        self.detect_fn = tf.saved_model.load(self.versions_path[v])
         self.min_score_thresh = min_score_thresh
 
 
