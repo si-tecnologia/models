@@ -1,0 +1,2 @@
+docker rm pantera-model -f
+docker run -dt -p 8501:8501 -v "$pwd/fine_tuned_model/saved_model:/models/smoke_detector/0000123" -e MODEL_NAME=smoke_detector --name=pantera-model --restart=always tensorflow/serving
