@@ -65,3 +65,38 @@ RUN pip install -r /requirements.txt
 COPY src/ /app
 
 ```
+
+
+## 4. Convertendo para o tflite
+
+instalar o TensorFlow com:
+
+```
+pip install tensorflow==2.2.0
+
+# ou com GPU
+
+pip install tensorflow-gpu==2.2.2
+
+# para converter para o tflite
+
+pip install tf-nightly
+```
+
+https://www.tensorflow.org/install/gpu
+
+para converter o modelo:
+
+```
+python convert_tflite.py
+```
+
+No caso de erro:
+
+tflite ValueError: None is only supported in the 1st dimension. Tensor 'input_tensor' has invalid shape, atualizar para versão tf-nightly e rodar:
+
+```
+python convert_tflite.py
+```
+
+Referência: https://github.com/tensorflow/tensorflow/issues/22564
