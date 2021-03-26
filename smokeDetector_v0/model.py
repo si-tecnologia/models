@@ -15,6 +15,9 @@ class SmokeDetector:
     versions_path = {
         0:'smokeDetector_v0/fine_tuned_model/saved_model',
         1:'smokeDetector_v0/fine_tuned_model/saved_model_v1',
+        2:'smokeDetector_v0/fine_tuned_model/saved_model_v2',
+        3:'smokeDetector_v0/fine_tuned_model/saved_model_v3',
+        4:'smokeDetector_v0/fine_tuned_model/saved_model_v4',
     }
 
     def __init__(self, min_score_thresh=0.3, v=0):
