@@ -2,3 +2,5 @@
 __pycache__
 
 object_detection/
+
+fine_tuned_model _versioned/
