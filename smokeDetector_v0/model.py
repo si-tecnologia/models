@@ -98,10 +98,12 @@ class SmokeDetector:
                 'smoke_prob':smoke_prob,
                 'detection_img': draw_img,
                 'rel_bbox':[0,0,0,0],
+                'bbox': detections['detection_boxes'][0].numpy()
             }
         
         else:
             return {
                 'has_smoke':False,
-                'smoke_prob':smoke_prob
+                'smoke_prob':smoke_prob,
+                'bbox': detections['detection_boxes'][0].numpy()
                 }
