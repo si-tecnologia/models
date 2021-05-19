@@ -1,8 +1,9 @@
-from smokeDetector_v0.model import SmokeDetector
+from smokeDetector_v0.model_v2 import SmokeDetector_v2
+
 from PIL import Image
 import numpy as np
 
-sd = SmokeDetector()
+sd = SmokeDetector_v2(min_score_thresh=0.3, v=6)
 
 print("image 1...........")
 
