@@ -15,13 +15,8 @@ class SmokeDetector_v2:
     }
 
     versions_path = {
-        0:'smokeDetector_v0/fine_tuned_model/0',
-        1:'smokeDetector_v0/fine_tuned_model/1',
-        2:'smokeDetector_v0/fine_tuned_model/2',
-        3:'smokeDetector_v0/fine_tuned_model/3',
-        4:'smokeDetector_v0/fine_tuned_model/4',
-        5:'smokeDetector_v0/fine_tuned_model/5',
-        6:'smokeDetector_v0/fine_tuned_model/6',
+        0:'smokeDetector_v0/fine_tuned_model/d0',
+        6:'smokeDetector_v0/fine_tuned_model/d6',
     }
     
     def draw_prediction_on_image(self, array_image, bbox):
