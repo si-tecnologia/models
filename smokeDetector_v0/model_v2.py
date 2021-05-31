@@ -14,7 +14,7 @@ class SmokeDetector_v2:
         1: {'id': 1, 'name': 'Fumaça'}
     }
 
-    versions_path = 'smokeDetector_v0/fine_tuned_model'
+    versions_path = 'smokeDetector_v0/fine_tuned_model/'
     
     
     def draw_prediction_on_image(self, array_image, bbox):
