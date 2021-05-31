@@ -14,11 +14,8 @@ class SmokeDetector_v2:
         1: {'id': 1, 'name': 'Fumaça'}
     }
 
-    versions_path = {
-        0:'smokeDetector_v0/fine_tuned_model/d0',
-        6:'smokeDetector_v0/fine_tuned_model/d6',
-        7:'smokeDetector_v0/fine_tuned_model/d6',
-    }
+    versions_path = 'smokeDetector_v0/fine_tuned_model'
+    
     
     def draw_prediction_on_image(self, array_image, bbox):
         im = Image.fromarray(np.uint8(array_image))
@@ -53,11 +50,8 @@ class SmokeDetector_v2:
             min_score_thresh=self.min_score_thresh)
         return image_np
 
-    def __init__(self, min_score_thresh=0.3, v=0):
-        if v not in self.versions_path.keys():
-            raise ValueError(f'Only versions {self.versions_path.keys()} are available')
-        
-        self.detect_fn = tf.saved_model.load(self.versions_path[v])
+    def __init__(self, min_score_thresh=0.35, v='d0'):
+        self.detect_fn = tf.saved_model.load(self.versions_path + v)
         self.min_score_thresh = min_score_thresh
 
 
